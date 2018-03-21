@@ -44,6 +44,21 @@ app.get('/adresse', function (req, res) {
  res.render('adresse.ejs', {adresses: resultat})   
   });
 })
+
+
+app.get('/question/:num', function (req, res) { 
+ let num = req.params.num
+ console.log(num)
+
+ var cursor = db.collection('adresse')
+                .find().toArray(function(err, resultat){
+ if (err) return console.log(err)        
+ res.render('question.ejs', {adresses: resultat, num: num})   
+  });
+
+})
+
+
 //////////////////////////////////////////  Route Rechercher
 app.post('/rechercher',  (req, res) => {
    let recherche = req.body.recherche.toLowerCase()

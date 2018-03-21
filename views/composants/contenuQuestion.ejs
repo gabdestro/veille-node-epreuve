@@ -1,0 +1,11 @@
+<%
+    let numTest = num;  
+%>
+
+<tr> 	
+	<td> <% if(numTest!=0){ %>Question <%- numTest %> <% } %></td>
+
+<% if(numTest==3){ %>
+	<%- include('tableau') %>
+<% } %>
+</tr>
